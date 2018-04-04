@@ -5,7 +5,7 @@ import (
 
 	"github.com/labstack/echo"
 	log "github.com/sirupsen/logrus"
-	"gitlab.com/nextid/common/env"
+	"github.com/arifsetiawan/go-common/env"
 )
 
 // Response JSONAPI object

@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/labstack/echo"
-	"gitlab.com/nextid/common/grid"
+	"github.com/arifsetiawan/go-common/grid"
 )
 
 // KendoGrid middleware transform Kendo grid POST body into paging, sort and filter query

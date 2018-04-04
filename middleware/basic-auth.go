@@ -5,7 +5,7 @@ import (
 
 	auth "github.com/abbot/go-http-auth"
 	"github.com/labstack/echo"
-	"gitlab.com/nextid/common/model"
+	"github.com/arifsetiawan/go-common/model"
 )
 
 // BasicAuth is
