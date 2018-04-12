@@ -3,7 +3,6 @@ package tracing
 import (
 	"time"
 
-	"github.com/arifsetiawan/go-common/env"
 	log "github.com/sirupsen/logrus"
 )
 
