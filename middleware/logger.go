@@ -61,7 +61,14 @@ type (
 var (
 	// DefaultLoggerConfig is the default Logger middleware config.
 	DefaultLoggerConfig = LoggerConfig{
-		Skipper: defaultSkipper,
+		Skipper: func(c echo.Context) bool {
+			// skip for static resource and favicon
+			if strings.Contains(c.Request().RequestURI, "/public/") ||
+				strings.Contains(c.Request().RequestURI, "favicon") {
+				return true
+			}
+			return false
+		},
 		Format: `{"level":"${level}","tenant":"${tenant}",` +
 			`"app":"${app}","type":"${type}",` +
 			`"time":"${time_rfc3339}","remote_ip":"${remote_ip}",` +
