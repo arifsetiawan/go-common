@@ -7,43 +7,40 @@ import (
 )
 
 func init() {
-	log.SetFormatter(&log.JSONFormatter{})
+	//log.SetFormatter(&log.JSONFormatter{})
 }
 
 // SimpleTracing will calculate difference between current and previous log
 type SimpleTracing struct {
 	StartTime *time.Time
-	AppName string
+	Operation string
 }
 
 // NewSimpleTracing is
 func NewSimpleTracing(appName string) *SimpleTracing {
 	return &SimpleTracing{
-		AppName: appName,
+		Operation: appName,
 	}
 }
 
 // Start is
 func (s *SimpleTracing) Start(tenant string, message string) {
-
 	now := time.Now()
 	s.StartTime = &now
 	log.WithFields(log.Fields{
-		"app":    s.AppName,
-		"type":   "tracing",
-		"tenant": tenant,
+		"operation": s.Operation,
+		"type":      "tracing",
+		"tenant":    tenant,
 	}).Info(message)
-
 }
 
 // End is
 func (s *SimpleTracing) End(tenant string, message string) {
-
 	now := time.Now()
 	log.WithFields(log.Fields{
-		"app":    s.AppName,
-		"type":    "tracing",
-		"tenant":  tenant,
-		"latency": now.Sub(*s.StartTime).Nanoseconds(),
+		"operation":  s.Operation,
+		"type":       "tracing",
+		"tenant":     tenant,
+		"latency_ms": now.Sub(*s.StartTime).Nanoseconds() / 1e6,
 	}).Info(message)
 }
