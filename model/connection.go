@@ -31,12 +31,12 @@ type ProviderOAuth2 struct {
 
 // ProviderInfo is extra info for user idp
 type ProviderInfo struct {
-	Name         string    `json:"name"`
-	ConnectionID string    `json:"connection_id"`
-	UserID       string    `json:"user_id"`
-	RefreshToken string    `json:"refresh_token,omitempty"`
+	Name         string     `json:"name"`
+	ConnectionID string     `json:"connection_id"`
+	UserID       string     `json:"user_id"`
+	RefreshToken string     `json:"refresh_token,omitempty"`
 	Expiry       time.Time `json:"expiry,omitempty"`
-	AccessToken  string    `json:"access_token,omitempty"`
+	AccessToken  string     `json:"access_token,omitempty"`
 }
 
 // LoginInfo is
