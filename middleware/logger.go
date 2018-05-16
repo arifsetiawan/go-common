@@ -64,7 +64,8 @@ var (
 		Skipper: func(c echo.Context) bool {
 			// skip for static resource and favicon
 			if strings.Contains(c.Request().RequestURI, "/public/") ||
-				strings.Contains(c.Request().RequestURI, "favicon") {
+				strings.Contains(c.Request().RequestURI, "favicon") ||
+				strings.Contains(c.Request().RequestURI, "/js/") {
 				return true
 			}
 			return false
