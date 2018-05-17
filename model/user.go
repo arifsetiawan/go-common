@@ -35,3 +35,8 @@ type Profile struct {
 	Suspended      bool           `json:"suspended"`
 	LastLogin      *LoginInfo     `json:"last_login,omitempty"`
 }
+
+// EmailVerification is
+type EmailVerification struct {
+	ID string `json:"id,omitempty"`
+}

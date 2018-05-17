@@ -13,3 +13,14 @@ type Client struct {
 	ClientURI     string   `json:"client_uri,omitempty"`
 	LogoURI       string   `json:"logo_uri,omitempty"`
 }
+
+// ClientItem is
+type ClientItem struct {
+	ID           string `json:"id,omitempty"`
+	TenantID     string `json:"tenant_id,omitempty"`
+	Name         string `json:"client_name,omitempty"`
+	Type         string `json:"type,omitempty"`
+	CollectionID string `json:"collection_id,omitempty"`
+	Owner        string `json:"owner,omitempty"`
+	ClientURI    string `json:"client_uri,omitempty"`
+}
