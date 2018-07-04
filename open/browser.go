@@ -39,3 +39,19 @@ func openbrowser(url string) {
 	}
 }
 */
+
+/*
+
+func openBrowser() {
+	openBrowser := env.Getenv("OPEN_BROWSER", "false")
+	if openBrowser == "true" {
+		appURL := env.Getenv("BASE_URL", "http://localhost:7000")
+		nfLog.Info("Opening default browser to " + appURL)
+		err := open.OpenBrowser(appURL)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+}
+
+*/

@@ -1,15 +1,15 @@
 package middleware
 
 import (
+	"github.com/arifsetiawan/go-common/query"
 	"github.com/labstack/echo"
-	"github.com/arifsetiawan/go-common/grid"
 )
 
 // KendoGrid middleware transform Kendo grid POST body into paging, sort and filter query
 func KendoGrid(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
 
-		gridParams := new(grid.GridParams)
+		gridParams := new(query.GridParams)
 		err := c.Bind(gridParams)
 		if err != nil {
 			return err
@@ -28,6 +28,19 @@ func KendoGrid(next echo.HandlerFunc) echo.HandlerFunc {
 				}
 			}
 
+		}
+
+		// default
+		if gridParams.PageSize == 0 {
+			gridParams.PageSize = 10
+		}
+
+		if gridParams.Page == 0 {
+			gridParams.Page = 1
+		}
+
+		if gridParams.Take == 0 {
+			gridParams.Take = 10
 		}
 
 		c.Set("gridParams", gridParams)

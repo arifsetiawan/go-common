@@ -23,4 +23,5 @@ type ClientItem struct {
 	CollectionID string `json:"collection_id,omitempty"`
 	Owner        string `json:"owner,omitempty"`
 	ClientURI    string `json:"client_uri,omitempty"`
+	EnableSignup bool   `json:"enable_signup,omitempty"`
 }

@@ -1,4 +1,4 @@
-package grid
+package query
 
 import (
 	"fmt"
@@ -44,7 +44,7 @@ func (p PostgresQueryBuilder) FilterClause(l GridFilter) (string, []interface{})
 			value += "%"
 		}
 		if !pgOperatorMap[l.Operator].Unary {
-			value += l.Value
+			value += l.Value.(string)
 		}
 		if pgOperatorMap[l.Operator].WildcardAfter {
 			value += "%"

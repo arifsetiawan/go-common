@@ -27,6 +27,7 @@ type ProviderOAuth2 struct {
 	TokenURL     string   `json:"token_url,omitempty"`
 	RedirectURL  string   `json:"redirect_url,omitempty"`
 	Scopes       []string `json:"scopes,omitempty"`
+	Domains      []string `json:"domains,omitempty"`
 }
 
 // ProviderInfo is extra info for user idp
