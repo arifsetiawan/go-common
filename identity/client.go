@@ -34,7 +34,7 @@ type ClientData struct {
 }
 
 // GetCollectionClientsWithID is
-func (s *SDKClient) GetCollectionClientsWithID(tenant string, collectionID string) (*Client, error) {
+func (s *SDKClient) GetCollectionClientsWithID(tenant string, collectionID string) (*model.Client, error) {
 
 	url := s.IdentityAPIURL + "/" + tenant + "/collections/clients/" + collectionID
 	resp, body, errs := gorequest.New().Get(url).
