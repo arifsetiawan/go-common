@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/parnurzeal/gorequest"
 	"github.com/arifsetiawan/go-common/model"
+	"github.com/parnurzeal/gorequest"
 )
 
 // SDK is
@@ -61,4 +61,14 @@ func (s *SDKClient) GetCollectionClientsWithID(tenant string, collectionID strin
 	}
 
 	return &clientData.Client, nil
+}
+
+// CheckWarden is
+func (s *SDKClient) CheckWarden(token string) error {
+	return error("Not implemented")
+}
+
+// Me is
+func (s *SDKClient) Me(token string) error {
+	return error("Not implemented")
 }
