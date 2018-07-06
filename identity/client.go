@@ -3,6 +3,7 @@ package identity
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 
@@ -65,10 +66,10 @@ func (s *SDKClient) GetCollectionClientsWithID(tenant string, collectionID strin
 
 // CheckWarden is
 func (s *SDKClient) CheckWarden(token string) error {
-	return error("Not implemented")
+	return errors.New("Not implemented")
 }
 
 // Me is
 func (s *SDKClient) Me(token string) error {
-	return error("Not implemented")
+	return errors.New("Not implemented")
 }
