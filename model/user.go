@@ -10,6 +10,12 @@ type User struct {
 	ProfilePicture string `json:"profile_picture,omitempty"`
 }
 
+// Group is
+type Group struct {
+	ID   string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+}
+
 // SignupUser is
 type SignupUser struct {
 	Name            string `json:"name,omitempty"`
@@ -30,7 +36,7 @@ type Profile struct {
 	UserMetadata   interface{}    `json:"user_metadata"`
 	AppMetadata    interface{}    `json:"app_metadata"`
 	Providers      []ProviderInfo `json:"providers"`
-	GroupIDs       []string       `json:"groups,omitempty"`
+	Groups         []Group        `json:"groups,omitempty"`
 	Applications   []Client       `json:"applications,omitempty"`
 	Suspended      bool           `json:"suspended"`
 	LastLogin      *LoginInfo     `json:"last_login,omitempty"`
