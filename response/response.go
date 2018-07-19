@@ -3,9 +3,9 @@ package response
 import (
 	"strconv"
 
+	"github.com/arifsetiawan/go-common/env"
 	"github.com/labstack/echo"
 	log "github.com/sirupsen/logrus"
-	"github.com/arifsetiawan/go-common/env"
 )
 
 // Response JSONAPI object
@@ -50,7 +50,10 @@ func MakeErrorResponse(tenant string, title string, err error, status int) *Resp
 
 // JSONError is
 func JSONError(c echo.Context, status int, err error) error {
-	tenant := c.Get("tenant").(string)
+	tenant, ok := c.Get("tenant").(string)
+	if !ok {
+		tenant = "none"
+	}
 
 	log.WithFields(log.Fields{
 		"app":    env.Getenv("APP_NAME", "none"),
@@ -67,15 +70,15 @@ func JSONError(c echo.Context, status int, err error) error {
 
 // JSONErrorSimple is
 func JSONErrorSimple(c echo.Context, status int, err error) error {
-	
+
 	log.WithFields(log.Fields{
-		"app":    env.Getenv("APP_NAME", "none"),
-		"type":   "backend",
+		"app":  env.Getenv("APP_NAME", "none"),
+		"type": "backend",
 	}).Errorln(err)
 
 	r := struct {
 		Status  string `json:"message"`
-		Message int         `json:"status"`
+		Message int    `json:"status"`
 	}{
 		err.Error(),
 		status,

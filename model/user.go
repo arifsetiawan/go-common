@@ -12,8 +12,8 @@ type User struct {
 
 // Group is
 type Group struct {
-	ID   string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	ID   string `json:"id"`
+	Name string `json:"name"`
 }
 
 // SignupUser is
@@ -26,20 +26,20 @@ type SignupUser struct {
 
 // Profile is
 type Profile struct {
-	ID             string         `json:"id,omitempty"`
-	TenantID       string         `json:"tenant_id,omitempty"`
-	Email          string         `json:"email,omitempty"`
-	Name           string         `json:"name,omitempty"`
-	Username       string         `json:"username,omitempty"`
-	Organization   string         `json:"organization,omitempty"`
-	ProfilePicture string         `json:"profile_picture,omitempty"`
+	ID             string         `json:"id"`
+	TenantID       string         `json:"tenant_id"`
+	Email          string         `json:"email"`
+	Name           string         `json:"name"`
+	Username       string         `json:"username"`
+	Organization   string         `json:"organization"`
+	ProfilePicture string         `json:"profile_picture"`
 	UserMetadata   interface{}    `json:"user_metadata"`
 	AppMetadata    interface{}    `json:"app_metadata"`
 	Providers      []ProviderInfo `json:"providers"`
-	Groups         []Group        `json:"groups,omitempty"`
-	Applications   []Client       `json:"applications,omitempty"`
+	Groups         []Group        `json:"groups"`
+	Applications   []Client       `json:"applications"`
 	Suspended      bool           `json:"suspended"`
-	LastLogin      *LoginInfo     `json:"last_login,omitempty"`
+	LastLogin      *LoginInfo     `json:"last_login"`
 }
 
 // EmailVerification is
