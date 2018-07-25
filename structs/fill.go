@@ -91,5 +91,12 @@ func camelCase(s string) string {
 
 // ValueByTag is
 func ValueByTag(i interface{}, t string) interface{} {
-	return reflect.Indirect(reflect.ValueOf(i)).FieldByName(camelCase(t)).Interface()
+	//return reflect.Indirect(reflect.ValueOf(i)).FieldByName(camelCase(t)).Interface()
+	obj := reflect.Indirect(reflect.ValueOf(i))
+	field := obj.FieldByName(camelCase(t))
+	// return empty string if not valid
+	if !field.IsValid() {
+		return ""
+	}
+	return field.Interface()
 }
