@@ -2,6 +2,9 @@ package request
 
 import (
 	"bytes"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"net"
 	"net/http"
 	"strings"
@@ -84,4 +87,40 @@ func GetIPAddress(r *http.Request) string {
 		}
 	}
 	return ""
+}
+
+// GeoIP ...
+type GeoIP struct {
+	IP            string  `json:"ip"`
+	ContinentCode string  `json:"continent_code"`
+	ContinentName string  `json:"continent_name"`
+	CountryCode   string  `json:"country_code"`
+	CountryName   string  `json:"country_name"`
+	RegionCode    string  `json:"region_code"`
+	RegionName    string  `json:"region_name"`
+	City          string  `json:"city"`
+	Lat           float32 `json:"latitude"`
+	Lon           float32 `json:"longitude"`
+}
+
+// GetLocation ...
+func GetLocation(address string, apiurl string, key string) (*GeoIP, error) {
+	response, err := http.Get(fmt.Sprintf("%s/%s?access_key=%s", apiurl, address, key))
+	if err != nil {
+		return nil, err
+	}
+	defer response.Body.Close()
+
+	body, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	geo := &GeoIP{}
+	err = json.Unmarshal(body, geo)
+	if err != nil {
+		return nil, err
+	}
+
+	return geo, nil
 }

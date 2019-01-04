@@ -1,0 +1,11 @@
+github.com/avct/uasurfer v0.0.0-20180927160713-2ce2c8fcd544 h1:kSERG18JdiEknfkAeCDd8NBhcOHzMvFkDpWSWHPtvdw=
+github.com/avct/uasurfer v0.0.0-20180927160713-2ce2c8fcd544/go.mod h1:noBAuukeYOXa0aXGqxr24tADqkwDO2KRD15FsuaZ5a8=
+github.com/nats-io/go-nats v1.7.0 h1:oQOfHcLr8hb43QG8yeVyY2jtarIaTjOv41CGdF3tTvQ=
+github.com/nats-io/go-nats v1.7.0/go.mod h1:+t7RHT5ApZebkrQdnn6AhQJmhJJiKAvJUio1PiiCtj0=
+github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1w=
+github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
+github.com/ua-parser/uap-go v0.0.0-20181218011509-d1c80256e78d h1:cwkfVml5barmXX4FTW7tSa/kZJMkLofSQwk90eMeYnM=
+github.com/ua-parser/uap-go v0.0.0-20181218011509-d1c80256e78d/go.mod h1:OBcG9bn7sHtXgarhUEb3OfCnNsgtGnkVf41ilSZ3K3E=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v2 v2.2.1 h1:mUhvW9EsL+naU5Q3cakzfE91YhliOondGd6ZrsDBHQE=
+gopkg.in/yaml.v2 v2.2.1/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=

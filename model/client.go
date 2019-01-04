@@ -16,12 +16,15 @@ type Client struct {
 
 // ClientItem is
 type ClientItem struct {
-	ID           string `json:"id,omitempty"`
-	TenantID     string `json:"tenant_id,omitempty"`
-	Name         string `json:"client_name,omitempty"`
-	Type         string `json:"type,omitempty"`
-	CollectionID string `json:"collection_id,omitempty"`
-	Owner        string `json:"owner,omitempty"`
-	ClientURI    string `json:"client_uri,omitempty"`
-	EnableSignup bool   `json:"enable_signup,omitempty"`
+	ID                  string `json:"id,omitempty"`
+	TenantID            string `json:"tenant_id,omitempty"`
+	Name                string `json:"client_name,omitempty"`
+	Type                string `json:"type,omitempty"`
+	CollectionID        string `json:"collection_id,omitempty"`
+	Owner               string `json:"owner,omitempty"`
+	ClientURI           string `json:"client_uri,omitempty"`
+	EnableSignup        bool   `json:"enable_signup,omitempty"`
+	EnableCaptchaSignin bool   `json:"enable_captcha_signin,omitempty"`
+	EnableCaptchaSignup bool   `json:"enable_captcha_signup,omitempty"`
+	EnableMFA           bool   `json:"enable_mfa,omitempty"`
 }
