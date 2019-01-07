@@ -8,6 +8,8 @@ import (
 	"net"
 	"net/http"
 	"strings"
+
+	"github.com/arifsetiawan/go-common/model"
 )
 
 // copied from https://husobee.github.io/golang/ip-address/2015/12/17/remote-ip-go.html
@@ -89,22 +91,8 @@ func GetIPAddress(r *http.Request) string {
 	return ""
 }
 
-// GeoIP ...
-type GeoIP struct {
-	IP            string  `json:"ip"`
-	ContinentCode string  `json:"continent_code"`
-	ContinentName string  `json:"continent_name"`
-	CountryCode   string  `json:"country_code"`
-	CountryName   string  `json:"country_name"`
-	RegionCode    string  `json:"region_code"`
-	RegionName    string  `json:"region_name"`
-	City          string  `json:"city"`
-	Lat           float32 `json:"latitude"`
-	Lon           float32 `json:"longitude"`
-}
-
 // GetLocation ...
-func GetLocation(address string, apiurl string, key string) (*GeoIP, error) {
+func GetLocation(address string, apiurl string, key string) (*model.GeoIP, error) {
 	response, err := http.Get(fmt.Sprintf("%s/%s?access_key=%s", apiurl, address, key))
 	if err != nil {
 		return nil, err
@@ -116,7 +104,7 @@ func GetLocation(address string, apiurl string, key string) (*GeoIP, error) {
 		return nil, err
 	}
 
-	geo := &GeoIP{}
+	geo := &model.GeoIP{}
 	err = json.Unmarshal(body, geo)
 	if err != nil {
 		return nil, err
