@@ -7,6 +7,7 @@ type User struct {
 	Username       string `json:"username,omitempty"`
 	Email          string `json:"email,omitempty" validate:"email"`
 	Name           string `json:"name,omitempty"`
+	Phone          string `json:"phone,omitempty"`
 	ProfilePicture string `json:"profile_picture,omitempty"`
 }
 
