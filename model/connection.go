@@ -52,4 +52,5 @@ type UserProfile struct {
 	User         *User         `json:"user,omitempty"`
 	ProviderInfo *ProviderInfo `json:"provider_info,omitempty"`
 	LoginInfo    *LoginInfo    `json:"login_info,omitempty"`
+	Device       *UserDevice   `json:"device,omitempty"`
 }
