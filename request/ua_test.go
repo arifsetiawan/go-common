@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/avct/uasurfer"
 	"github.com/ua-parser/uap-go/uaparser"
 )
 
@@ -19,30 +18,25 @@ var userAgents = []string{
 	"Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
 }
 
+/*
 func TestUASurfer(t *testing.T) {
-
 	//parser := uaparser.NewFromSaved()
-
 	for _, v := range userAgents {
 		//client := parser.Parse(v)
 		ua := uasurfer.Parse(v)
 
-		/*userAgent := &UserAgent{
-			Device:  client.Device.ToString(),
-			Browser: client.UserAgent.ToString(),
-			OS:      client.Os.ToString(),
-		}*/
-
 		fmt.Printf("%+v\n", ua)
 	}
-
 }
+*/
 
 func TestUAParser(t *testing.T) {
 	parser := uaparser.NewFromSaved()
 
 	for _, v := range userAgents {
 		ua := parser.Parse(v)
+
+		fmt.Printf("%+v, %+v, %+v\n", ua.Device, ua.UserAgent, ua.Os)
 
 		userAgent := &UserAgent{
 			Device:  ua.Device.ToString(),

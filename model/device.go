@@ -2,11 +2,14 @@ package model
 
 // UserDevice ...
 type UserDevice struct {
-	IP       string `json:"ip"`
-	Device   string `json:"device"`
-	OS       string `json:"os"`
-	Browser  string `json:"browser"`
-	Location *GeoIP `json:"location"`
+	UserID              string `json:"user_id"`
+	IP                  string `json:"ip"`
+	Device              string `json:"device"`
+	OS                  string `json:"os"`
+	OSMajorVersion      string `json:"os_major_version"`
+	Browser             string `json:"browser"`
+	BrowserMajorVersion string `json:"browser_major_version"`
+	Location            *GeoIP `json:"location"`
 }
 
 // GeoIP ...
