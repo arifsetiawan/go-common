@@ -12,6 +12,7 @@ const (
 	CharSetAlphabet           = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	CharSetAlphaNumeric       = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	CharSetAlphaNumericSymbol = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&()*+,-./:;<=>?@[]^_`{|}~"
+	CharSetAlphaNumericUpper  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 )
 
 var defaultLetterBytes = CharSetAlphabet
@@ -63,6 +64,11 @@ func GenerateAlphabet(n int) string {
 // GenerateAlphaNumeric is
 func GenerateAlphaNumeric(n int) string {
 	return NewGenerator(CharSetAlphaNumeric).GenerateRandomString(n)
+}
+
+// GenerateAlphaNumericUpper is
+func GenerateAlphaNumericUpper(n int) string {
+	return NewGenerator(CharSetAlphaNumericUpper).GenerateRandomString(n)
 }
 
 // GenerateAlphaNumericSymbol is
