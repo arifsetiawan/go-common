@@ -3,6 +3,7 @@ package model
 // UserDevice ...
 type UserDevice struct {
 	UserID              string `json:"user_id"`
+	UserPhone           string `json:"user_phone"`
 	IP                  string `json:"ip"`
 	Device              string `json:"device"`
 	OS                  string `json:"os"`
@@ -24,4 +25,11 @@ type GeoIP struct {
 	City          string  `json:"city"`
 	Lat           float32 `json:"latitude"`
 	Lon           float32 `json:"longitude"`
+}
+
+// MFACodeVerification ...
+type MFACodeVerification struct {
+	UserID    string `json:"user_id"`
+	UserPhone string `json:"user_phone"`
+	MFACode   string `json:"mfa_code"`
 }
