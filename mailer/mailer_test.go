@@ -4,16 +4,18 @@ import (
 	"testing"
 
 	nats "github.com/nats-io/go-nats"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestSendEmail(t *testing.T) {
 	natsURL := "nats://192.168.99.100:4222"
 	nc, err := nats.Connect(natsURL)
-	assert.Nil(t, err)
+	if err != nil {
+		t.Error(err.Error())
+	}
+
 	defer nc.Close()
 
-	mailer := NewMailer(nc, "mailer.send")
+	mailer := NewMailerNats(nc, "mailer.send")
 
 	emailData := &EmailData{}
 	emailData.To = append(emailData.To, Recipient{
@@ -31,6 +33,8 @@ func TestSendEmail(t *testing.T) {
 		<p>Best,</p>
 	`
 
-	err = mailer.Publish(emailData)
-	assert.Nil(t, err)
+	err = mailer.Send(emailData)
+	if err != nil {
+		t.Error(err.Error())
+	}
 }
